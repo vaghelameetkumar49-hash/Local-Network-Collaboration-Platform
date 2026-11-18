@@ -1,30 +1,36 @@
 # Orbit — Local Network Collaboration Platform
 
-A responsive, installable web app for demonstrating team collaboration, project tracking and the Git feature-branch / pull-request workflow. Works in modern mobile and desktop browsers.
+Orbit is a responsive, installable web workspace for demonstrating project planning, task tracking, team organization and the Git feature-branch / pull-request workflow.
 
 ## Features
-- Responsive dashboard for phones, tablets and laptops
-- Create projects, tasks and team members
-- Update task status
-- Demonstration branch and pull-request workflow
-- Browser local storage for demo data
-- PWA manifest and service worker for app-like installation and offline shell
+- Professional responsive dashboard for mobile, tablet and desktop
+- Project creation and progress overview
+- Task creation, editing, search, status filtering and deletion
+- Team member management
+- Educational feature branch and pull-request workflow
+- Dark mode
+- JSON backup download and restore
+- CSV task export
+- Browser-local persistence and PWA offline app shell
 
 ## Run online
-Enable GitHub Pages in **Settings → Pages → Deploy from a branch → main → /(root)**. Then open:
+Enable GitHub Pages in **Settings → Pages → Deploy from a branch → main → /(root)**:
 https://vaghelameetkumar49-hash.github.io/Local-Network-Collaboration-Platform/
+
+## Install on mobile
+Open the live site in a supported browser and use the browser menu's **Install app** or **Add to Home screen** option when available.
 
 ## Run on a laptop / LAN
 1. Download or clone this repository on a laptop.
 2. Open a terminal in the project folder.
-3. Run `python -m http.server 8000 --host 0.0.0.0`.
-4. Find the laptop's private Wi-Fi IPv4 address (for example `192.168.1.5`).
-5. On another device connected to the same Wi-Fi, open `http://192.168.1.5:8000` (replace with the laptop's actual address). Allow the server through the laptop firewall if prompted.
+3. Run `python -m http.server 8000 --bind 0.0.0.0`.
+4. Find the laptop's private Wi-Fi IPv4 address.
+5. On another device connected to the same Wi-Fi, open `http://LAPTOP-IP:8000`.
 
 A laptop is required to host this LAN server. A phone can access it as a client. GitHub Pages is the public online hosting option.
 
 ## Important limitations
-This is a front-end learning prototype. Projects, tasks and members are stored in each browser's local storage, so data is not shared or synchronized between devices. Branches and pull requests shown in the app are educational demo records; they do not create real GitHub branches or pull requests. Real multi-user collaboration requires a backend/database and GitHub API integration.
+This release is a front-end learning prototype. Projects, tasks and members are stored in the current browser's local storage; they are not synchronized between users or devices. Branch and pull-request records are educational simulations and do not create real GitHub branches or pull requests. File sharing, secure login, real-time collaboration and shared database storage are not implemented. These require a backend, authentication and API integration.
 
 ## Git learning commands
 ```bash
@@ -33,7 +39,7 @@ git add .
 git commit -m "Add my feature"
 git push -u origin feature/my-feature
 ```
-Then open GitHub and create a Pull Request from your feature branch into main.
+Then create a real Pull Request on GitHub from the feature branch into `main`.
 
-## Demo
-No login is required. Use sample data or add your own test entries. Avoid entering private or sensitive information.
+## Demo data
+The workspace starts with sample project data. Avoid entering private or sensitive information. Use the JSON backup control to save or restore the current browser's demo workspace.
