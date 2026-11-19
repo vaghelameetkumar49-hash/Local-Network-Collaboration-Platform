@@ -3,24 +3,34 @@ name: Build Orbit Android APK
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - 'index.html'
       - 'app.js'
       - 'supabase-config.js'
       - 'manifest.webmanifest'
+      - 'sw.js'
       - 'capacitor.config.json'
       - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/android-apk.yml'
 
 permissions:
   contents: read
 
+concurrency:
+  group: orbit-android-apk-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
+    name: Build Android APK
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+
     steps:
-      - name: Checkout repository
+      - name: Checkout source
         uses: actions/checkout@v4
 
       - name: Set up Node.js
@@ -34,28 +44,35 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
 
-      - name: Prepare web app
+      - name: Install Capacitor dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Prepare web assets
         run: |
+          test -f index.html
+          test -f app.js
+          test -f supabase-config.js
           mkdir -p www
-          cp index.html app.js supabase-config.js manifest.webmanifest www/
-          cp sw.js www/ || true
+          cp index.html app.js supabase-config.js www/
+          if [ -f manifest.webmanifest ]; then cp manifest.webmanifest www/; fi
+          if [ -f sw.js ]; then cp sw.js www/; fi
 
-      - name: Generate Android project
+      - name: Create Android project
         run: npx cap add android
 
-      - name: Sync Android project
+      - name: Sync web assets to Android
         run: npx cap sync android
 
-      - name: Build installable debug APK
+      - name: Build debug APK
+        working-directory: android
         run: |
-          cd android
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew --no-daemon assembleDebug
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: Orbit-Android-APK
