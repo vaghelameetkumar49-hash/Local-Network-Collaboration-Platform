@@ -19,7 +19,7 @@
     $("#advSearch").addEventListener("input",e=>{searchText=e.target.value.toLowerCase();filterRows()});
     $("#advFilter").addEventListener("change",e=>{currentFilter=e.target.value;filterRows()});
     nav?.querySelectorAll(".nav").forEach(b=>{if(b.dataset.tab!=="overview")b.addEventListener("click",()=>show(b.dataset.tab))});
-    update();
+    update();show("overview");
   }
   function show(tab){["projects","tasks","team"].forEach(t=>{const el=$("#"+t+"Tab");if(el)el.hidden=t!==tab});const ov=$("#advancedOverview");if(ov)ov.hidden=tab!=="overview";const tools=document.querySelector(".adv-tools");if(tools)tools.hidden=tab!=="tasks";document.querySelectorAll(".nav").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));}
   function update(){
@@ -30,9 +30,9 @@
     filterRows();
   }
   function filterRows(){document.querySelectorAll("#taskList tr").forEach(row=>{const status=row.querySelector("select")?.value||"";const matchStatus=currentFilter==="All"||status===currentFilter;const matchText=row.textContent.toLowerCase().includes(searchText);row.hidden=!(matchStatus&&matchText)});}
-  const obs=new MutationObserver(()=>{if($("#app")&&!$("#app").hidden){mount();update()}});
-  obs.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:["hidden"]});
-  const originalRefresh=window.refresh;
+  const appNode=$("#app");
+  const obs=new MutationObserver(()=>{if(appNode&&!appNode.hidden){mount();update()}});
+  if(appNode)obs.observe(appNode,{attributes:true,attributeFilter:["hidden"]});
   document.addEventListener("click",e=>{if(e.target.closest("#addTask,#addProject"))setTimeout(update,200)});
   document.addEventListener("change",e=>{if(e.target.matches("[data-status]"))setTimeout(update,250)});
   // Re-render summary whenever the existing task/member lists update.
