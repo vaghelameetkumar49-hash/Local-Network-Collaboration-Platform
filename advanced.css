@@ -1,0 +1,21 @@
+/* Orbit Advanced UI */
+:root{--orb-shadow:0 12px 34px rgba(22,34,68,.07)}
+.stats article,.project,.panel{box-shadow:var(--orb-shadow)}
+.stats article{position:relative;overflow:hidden}
+.stats article:after{content:"";position:absolute;width:74px;height:74px;border-radius:50%;right:-24px;top:-25px;background:var(--soft)}
+#advancedOverview{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin:18px 0}
+.adv-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--orb-shadow);min-width:0}
+.adv-card h2,.adv-card h3{margin:0 0 12px}
+.adv-muted{color:var(--muted);font-size:12px}
+.adv-progress{height:11px;background:var(--bg);border-radius:20px;overflow:hidden;margin:12px 0}
+.adv-progress span{display:block;height:100%;background:linear-gradient(90deg,#5d6df5,#17b69d);border-radius:20px;transition:width .25s}
+.adv-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.adv-kpi{background:var(--bg);padding:12px;border-radius:12px}
+.adv-kpi b{font-size:23px;display:block}
+.adv-tools{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.adv-tools input,.adv-tools select{max-width:260px;margin:0}
+.adv-task{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.adv-task:last-child{border:0}
+.adv-pill{font-size:11px;padding:4px 8px;border-radius:20px;background:var(--soft);color:var(--accent);white-space:nowrap}
+.adv-empty{padding:15px;color:var(--muted);text-align:center}
+@media(max-width:650px){#advancedOverview{grid-template-columns:1fr}.adv-tools input,.adv-tools select{max-width:none;flex:1 1 100%}}
