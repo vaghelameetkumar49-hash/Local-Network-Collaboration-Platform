@@ -3,4 +3,70 @@
 <style>
 :root{--bg:#f4f6fb;--panel:#fff;--ink:#172033;--muted:#778198;--line:#e7ebf2;--accent:#5d6df5;--soft:#eef0ff}*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 Inter,system-ui,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.auth{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 20% 10%,#dfe5ff,transparent 35%),var(--bg)}.authbox{width:min(430px,100%);background:var(--panel);padding:30px;border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 70px #18264b12}.logo{font-weight:900;letter-spacing:1px;color:var(--accent);font-size:20px}.auth h1{font-size:27px;margin:18px 0 4px}.muted,small{color:var(--muted)}label{display:block;font-size:12px;font-weight:750;margin:14px 0 6px;color:var(--muted)}input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);margin-bottom:5px}.primary,.secondary{border:0;border-radius:10px;padding:11px 15px;font-weight:800}.primary{background:var(--accent);color:white}.secondary{background:var(--soft);color:var(--accent)}.authbox .primary,.authbox .secondary{width:100%;margin-top:14px}.tabs{display:flex;background:var(--bg);padding:4px;border-radius:11px;margin:20px 0}.tabs button{flex:1;border:0;background:transparent;padding:9px;border-radius:8px}.tabs .selected{background:var(--panel);color:var(--accent);font-weight:800;box-shadow:0 1px 5px #0001}.hint,.or{font-size:12px;color:var(--muted);text-align:center;margin-top:15px}.or{margin:22px 0}.link,.textbtn{border:0;background:transparent;color:var(--accent);padding:7px}.authbox .link{display:block;margin:10px auto}header{height:68px;background:#111b2d;color:white;display:flex;align-items:center;justify-content:space-between;padding:0 max(18px,calc((100vw - 1180px)/2));gap:12px}header .logo{color:white}.headright{display:flex;align-items:center;gap:12px;font-size:12px}.headright .secondary{padding:7px 10px}main{max-width:1180px;margin:auto;padding:30px 22px}.welcome,.sectionhead,.projecttop,.projectbottom{display:flex;justify-content:space-between;align-items:center;gap:12px}.welcome h1{font-size:28px;margin:0}.welcome p{margin:4px 0 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}.stats article,.project{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px}.stats small{display:block;font-weight:800;letter-spacing:1px}.stats b{font-size:28px;display:block;margin-top:6px}.nav{border:0;background:transparent;padding:12px 16px;color:var(--muted);font-weight:800}.nav.active{color:var(--accent);border-bottom:3px solid var(--accent)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:20px;margin-top:14px}.sectionhead{margin-bottom:14px}.sectionhead h2{margin:0}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.project h3{margin:0}.project p{color:var(--muted);font-size:12px}.tag{font-size:11px;background:var(--soft);color:var(--accent);padding:5px 9px;border-radius:20px}.bar{height:7px;background:var(--bg);border-radius:9px;overflow:hidden;margin:16px 0 8px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#5d6df5,#17b69d)}.projectbottom{font-size:11px;color:var(--muted)}.danger{color:#d34b59}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:550px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{font-size:11px;color:var(--muted)}td select{width:auto;margin:0;padding:7px}.member{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.member small{display:block}.avatar{width:38px;height:38px;border-radius:50%;background:var(--soft);color:var(--accent);display:grid;place-items:center;font-weight:900}.empty{text-align:center;color:var(--muted);padding:30px}.modal{position:fixed;inset:0;background:#101827aa;display:grid;place-items:center;padding:18px}.modalbox{width:min(440px,100%);background:var(--panel);border-radius:18px;padding:24px;position:relative}.modalbox h2{margin-top:0}.close{position:absolute;right:15px;top:12px;border:0;background:transparent;font-size:25px}#notice{background:#eaf7f2;color:#087c65;padding:12px 15px;border-radius:10px;margin-bottom:16px}footer{text-align:center;color:var(--muted);font-size:11px;padding:25px}.small{font-size:11px}@media(max-width:650px){header{height:auto;min-height:60px;flex-wrap:wrap;padding:12px 14px}.headright{gap:7px;flex-wrap:wrap;justify-content:flex-end}main{padding:20px 13px}.welcome{align-items:flex-start;flex-direction:column}.welcome h1{font-size:23px}.welcome .primary{width:100%}.stats{gap:8px}.stats article{padding:12px}.stats b{font-size:23px}.cards{grid-template-columns:1fr}.panel{padding:13px}.sectionhead{align-items:flex-start;flex-direction:column}}
 </style></head><body><div id="boot" style="padding:30px;text-align:center">Loading Orbit…</div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./supabase-config.js"></script><link rel="stylesheet" href="./advanced.css"><script src="./app.js"></script><script src="./advanced.js"></script></body></html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./supabase-config.js"></script><style>
+/* Orbit Advanced UI */
+:root{--orb-shadow:0 12px 34px rgba(22,34,68,.07)}
+.stats article,.project,.panel{box-shadow:var(--orb-shadow)}
+.stats article{position:relative;overflow:hidden}
+.stats article:after{content:"";position:absolute;width:74px;height:74px;border-radius:50%;right:-24px;top:-25px;background:var(--soft)}
+#advancedOverview{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin:18px 0}
+.adv-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--orb-shadow);min-width:0}
+.adv-card h2,.adv-card h3{margin:0 0 12px}
+.adv-muted{color:var(--muted);font-size:12px}
+.adv-progress{height:11px;background:var(--bg);border-radius:20px;overflow:hidden;margin:12px 0}
+.adv-progress span{display:block;height:100%;background:linear-gradient(90deg,#5d6df5,#17b69d);border-radius:20px;transition:width .25s}
+.adv-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.adv-kpi{background:var(--bg);padding:12px;border-radius:12px}
+.adv-kpi b{font-size:23px;display:block}
+.adv-tools{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.adv-tools input,.adv-tools select{max-width:260px;margin:0}
+.adv-task{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.adv-task:last-child{border:0}
+.adv-pill{font-size:11px;padding:4px 8px;border-radius:20px;background:var(--soft);color:var(--accent);white-space:nowrap}
+.adv-empty{padding:15px;color:var(--muted);text-align:center}
+@media(max-width:650px){#advancedOverview{grid-template-columns:1fr}.adv-tools input,.adv-tools select{max-width:none;flex:1 1 100%}}
+
+</style><script src="./app.js"></script><script>
+/* Orbit Advanced Dashboard — works with the existing Supabase tables */
+(()=> {
+  const $=s=>document.querySelector(s);
+  const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  let currentFilter="All", searchText="";
+  function mount(){
+    const app=$("#app"), main=app?.querySelector("main");
+    if(!app||app.hidden||!main||$("#advancedOverview"))return;
+    const nav=main.querySelector("nav");
+    if(nav&&!nav.querySelector('[data-tab="overview"]')){
+      const b=document.createElement("button");b.className="nav";b.dataset.tab="overview";b.textContent="Overview";
+      nav.insertBefore(b,nav.firstChild);b.addEventListener("click",()=>show("overview"));
+    }
+    const overview=document.createElement("section");overview.id="advancedOverview";
+    overview.innerHTML='<article class="adv-card"><h2>Workspace health</h2><div class="adv-muted">Live summary of your team workspace</div><div class="adv-progress"><span id="advProgress" style="width:0%"></span></div><b id="advProgressLabel">0% tasks completed</b><p class="adv-muted" id="advProjectLabel">Across 0 projects</p></article><article class="adv-card"><h3>Task insights</h3><div class="adv-kpis"><div class="adv-kpi"><span class="adv-muted">To do</span><b id="advTodo">0</b></div><div class="adv-kpi"><span class="adv-muted">In progress</span><b id="advDoing">0</b></div><div class="adv-kpi"><span class="adv-muted">Completed</span><b id="advDone">0</b></div><div class="adv-kpi"><span class="adv-muted">Team members</span><b id="advMembers">0</b></div></div></article>';
+    const projects=$("#projectsTab");main.insertBefore(overview,projects);
+    const tools=document.createElement("div");tools.className="adv-tools";tools.innerHTML='<input id="advSearch" type="search" placeholder="Search tasks or projects…"><select id="advFilter"><option>All</option><option>To do</option><option>In progress</option><option>Done</option></select>';
+    const taskPanel=$("#tasksTab");if(taskPanel){const h=taskPanel.querySelector(".sectionhead");h?.after(tools);}
+    $("#advSearch").addEventListener("input",e=>{searchText=e.target.value.toLowerCase();filterRows()});
+    $("#advFilter").addEventListener("change",e=>{currentFilter=e.target.value;filterRows()});
+    nav?.querySelectorAll(".nav").forEach(b=>{if(b.dataset.tab!=="overview")b.addEventListener("click",()=>show(b.dataset.tab))});
+    update();show("overview");
+  }
+  function show(tab){["projects","tasks","team"].forEach(t=>{const el=$("#"+t+"Tab");if(el)el.hidden=t!==tab});const ov=$("#advancedOverview");if(ov)ov.hidden=tab!=="overview";const tools=document.querySelector(".adv-tools");if(tools)tools.hidden=tab!=="tasks";document.querySelectorAll(".nav").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));}
+  function update(){
+    if(!$("#advancedOverview")||typeof tasks==="undefined")return;
+    const all=tasks||[],done=all.filter(t=>t.status==="Done").length,todo=all.filter(t=>t.status==="To do").length,doing=all.filter(t=>t.status==="In progress").length,pct=all.length?Math.round(done/all.length*100):0;
+    $("#advProgress").style.width=pct+"%";$("#advProgressLabel").textContent=pct+"% tasks completed";$("#advProjectLabel").textContent="Across "+(projects?.length||0)+" projects";
+    $("#advTodo").textContent=todo;$("#advDoing").textContent=doing;$("#advDone").textContent=done;$("#advMembers").textContent=members?.length||0;
+    filterRows();
+  }
+  function filterRows(){document.querySelectorAll("#taskList tr").forEach(row=>{const status=row.querySelector("select")?.value||"";const matchStatus=currentFilter==="All"||status===currentFilter;const matchText=row.textContent.toLowerCase().includes(searchText);row.hidden=!(matchStatus&&matchText)});}
+  const appNode=$("#app");
+  const obs=new MutationObserver(()=>{if(appNode&&!appNode.hidden){mount();update()}});
+  if(appNode)obs.observe(appNode,{attributes:true,attributeFilter:["hidden"]});
+  document.addEventListener("click",e=>{if(e.target.closest("#addTask,#addProject"))setTimeout(update,200)});
+  document.addEventListener("change",e=>{if(e.target.matches("[data-status]"))setTimeout(update,250)});
+  // Re-render summary whenever the existing task/member lists update.
+  const listObs=new MutationObserver(()=>update());
+  const wait=()=>{const list=$("#taskList");if(list)listObs.observe(list,{childList:true,subtree:true,characterData:true});};
+  wait();setTimeout(wait,800);
+})();
+</script></body></html>
